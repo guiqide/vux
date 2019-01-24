@@ -77,7 +77,7 @@ export default {
     width:2px;
     left:5px;
     top:5px;
-    background-color: @timeline-item-bg-color;
+    background-color: #04BE02;
   }
 
   &-item-checked {
@@ -97,9 +97,22 @@ export default {
       color: #FFF;
     }
   }
+  &-item-isallow,
+  &-item-isreject,
+  &-item-iscurrent {
+    transform: translate3d(-50%, -50%, 0);
+    top: 50%;
+    left: 50%;
+    background: #EBEFF2;
+    position: absolute;
+    font-size: 20px !important;
+  }
+  &-item-iscurrent {
+    background: transparent;
+  }
 }
 
 .vux-timeline-item-color {
-	background-color: @timeline-item-bg-color;
+	background-color: #04BE02;
 }
 </style>

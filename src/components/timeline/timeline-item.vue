@@ -1,7 +1,13 @@
 <template>
 	<li class="vux-timeline-item">
-		<div :class="['vux-timeline-item-color', {'vux-timeline-item-head': !isFirst,'vux-timeline-item-head-first': isFirst }]" :style="headStyle">
-			<icon v-show="isFirst && $parent.isShowIcon" type="success_no_circle" class="vux-timeline-item-checked"></icon>
+		<div :class="[
+      'vux-timeline-item-color', {
+        'vux-timeline-item-head': true
+      }]" :style="headStyle">
+			<!-- <icon v-show="isOver && $parent.isShowIcon" type="success_no_circle" class="vux-timeline-item-checked"></icon> -->
+			<icon v-show="isAllow && $parent.isShowIcon" type="success" class="vux-timeline-item-isallow"></icon>
+			<icon v-show="isReject && $parent.isShowIcon" type="warn" class="vux-timeline-item-isreject"></icon>
+			<icon v-show="isCurrent && $parent.isShowIcon" type="circle" class="vux-timeline-item-iscurrent"></icon>
 		</div>
 		<div class="vux-timeline-item-tail" :style="tailStyle"></div>
 		<div class="vux-timeline-item-content">
@@ -20,6 +26,20 @@ export default {
       isLast: true,
       isFirst: true,
       headStyle: { backgroundColor: this.$parent.color }
+    }
+  },
+  props: {
+    isAllow: {
+      type: Boolean,
+      default: false
+    },
+    isReject: {
+      type: Boolean,
+      default: false
+    },
+    isCurrent: {
+      type: Boolean,
+      default: false
     }
   },
   mounted () {
